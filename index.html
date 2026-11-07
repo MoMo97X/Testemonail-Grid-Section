@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | [testimonials grid section]</title>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,300&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      :root {
+        /* ### Primary ### */
+        --Purple-50: hsl(261, 100%, 95%);
+        --Purple-300: hsl(264, 82%, 80%);
+        --Purple-500: hsl(263, 55%, 52%);
+
+        /* ### Neutral ### */
+        --White: hsl(0, 0%, 100%);
+        --Grey-100: hsl(214, 17%, 92%);
+        --Grey-200: hsl(0, 0%, 81%);
+        --Grey-400: hsl(224, 10%, 45%);
+        --Grey-500: hsl(217, 19%, 35%);
+        --Dark-blue: hsl(219, 29%, 14%);
+        --Black: hsl(0, 0%, 7%);
+
+        /* ## font ## */
+        --fs: clamp(0.813rem, 1.2rem + 1.5vw + 1.5rem);
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        padding: clamp(1rem, 0.75rem + 1.15vw, 1.8rem);
+        background-color: var(--Grey-100);
+        font-family:
+          kumbh sans,
+          Arial,
+          Helvetica,
+          sans-serif;
+        display: grid;
+        place-content: center;
+      }
+
+      span {
+        display: block;
+      }
+
+      p {
+        font-weight: 400;
+        color: var(--Grey-200);
+      }
+
+      h1 {
+        font-size: clamp(16px, 10px + 1.5vw, 40px);
+        color: var(--White);
+      }
+
+      img {
+        border-radius: 50%;
+      }
+
+      .purple {
+        color: var(--White);
+        background-color: var(--Purple-500);
+      }
+
+      .dark {
+        background-color: var(--Dark-blue);
+      }
+
+      .white {
+        background-color: var(--White);
+      }
+
+      .grey {
+        background-color: var(--Grey-500);
+      }
+
+      .tx-white {
+        color: var(--White);
+      }
+
+      .tx-black {
+        color: var(--Black);
+      }
+
+      /* main content */
+      .card-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .card {
+        /* padding: clamp(20px, 1.25rem - 2.5vw, 24px); */
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 10px 10px 20px 18px var(--Grey-200);
+        display: grid;
+        align-content: start;
+      }
+
+      .bx-1 {
+        display: grid;
+
+        grid-template-columns: 0.5fr 3fr;
+        align-items: center;
+        gap: 1rem;
+
+        img {
+          border: 2px solid var(--Purple-300);
+        }
+
+        & div > span:first-child {
+          font-size: 15px;
+          margin: 0 0 2px;
+        }
+
+        & div > span:last-child {
+          font-size: 13px;
+          color: var(--Grey-200);
+        }
+
+        & .quotes {
+          display: none;
+        }
+      }
+
+      .bx-2 {
+        font-size: 26px;
+        font-weight: 600;
+      }
+
+      /* *** Medium screen *** */
+
+      @media (min-width: 769px) and (max-width: 1439px) {
+        .card-container {
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(3, auto);
+          grid-template-areas:
+            "purple purple"
+            "grey white-1"
+            "black black"
+            "white-2 white-2";
+        }
+
+        .bx-1 {
+          grid-template-columns: 0.5fr 3fr 1fr;
+        }
+
+        .purple {
+          grid-area: purple;
+        }
+
+        .grey {
+          grid-area: grey;
+        }
+
+        .white-2 {
+          grid-area: white-2;
+        }
+
+        .white-1 {
+          grid-area: white-1;
+        }
+
+        .dark {
+          grid-area: black;
+        }
+
+        .bx-1 .quotes {
+          display: inline;
+          z-index: 10;
+          border: none;
+          border-radius: unset;
+        }
+      }
+
+      /* *** Large Screen *** */
+
+      @media (min-width: 1440px) {
+        .card-container {
+          /* Define your columns and rows */
+          grid-template-columns: repeat(4, 1fr);
+          grid-template-rows: repeat(2, auto);
+
+          /* Map out your cards visually */
+          grid-template-areas:
+            "daniel daniel jonathan kira"
+            "jeanette patrick patrick kira";
+        }
+
+        .bx-1 {
+          grid-template-columns: 0.5fr 3fr 1fr;
+        }
+
+        .purple {
+          grid-area: daniel;
+        }
+
+        .grey {
+          grid-area: jonathan;
+        }
+
+        .white-2 {
+          grid-area: kira;
+        }
+
+        .white-1 {
+          grid-area: jeanette;
+        }
+
+        .dark {
+          grid-area: patrick;
+        }
+
+        .bx-1 .quotes {
+          display: inline;
+          z-index: 10;
+          border: none;
+          border-radius: unset;
+        }
+      }
+
+      .attribution {
+        margin-block-start: min(1.5rem, calc(0.86rem + 1vw));
+        font-size: var(--fs);
+        text-align: center;
+      }
+
+      .attribution a {
+        font-family: "kumbh sans", Arial, Helvetica, sans-serif;
+        color: var(--Purple-500);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- content -->
+    <main class="card-container">
+      <!-- 1 -->
+      <div class="card tx-white purple">
+        <div class="bx-1">
+          <img src="images/image-daniel.jpg" alt="" />
+          <div>
+            <span>Daniel Clifford</span>
+            <span>Verified Graduate</span>
+          </div>
+          <img
+            class="quotes"
+            src="images/bg-pattern-quotation.svg"
+            alt=""
+            aria-hidden="true"
+          />
+        </div>
+        <h1 class="bx-2">
+          I received a job offer mid-course, and the subjects I learned were
+          current, if not more so, in the company I joined. I honestly feel I
+          got every penny’s worth.
+        </h1>
+        <p class="bx-3">
+          “ I was an EMT for many years before I joined the bootcamp. I’ve been
+          looking to make a transition and have heard some people who had an
+          amazing experience here. I signed up for the free intro course and
+          found it incredibly fun! I enrolled shortly thereafter. The next 12
+          weeks was the best - and most grueling - time of my life. Since
+          completing the course, I’ve successfully switched careers, working as
+          a Software Engineer at a VR startup. ”
+        </p>
+      </div>
+      <!-- 2 -->
+      <div class="card tx-white grey">
+        <div class="bx-1">
+          <img src="images/image-jonathan.jpg" alt="" />
+          <div>
+            <span>Jonathan Walters</span>
+            <span>Verified Graduate</span>
+          </div>
+        </div>
+        <h1 class="bx-2">The team was very supportive and kept me motivated</h1>
+        <p>
+          “ I started as a total newbie with virtually no coding skills. I now
+          work as a mobile engineer for a big company. This was one of the best
+          investments I’ve made in myself. ”
+        </p>
+      </div>
+      <!-- 3 -->
+      <div class="card white white-1">
+        <div class="bx-1">
+          <img src="images/image-jeanette.jpg" alt="" />
+          <div>
+            <span>Jeanette Harmon</span>
+            <span>Verified Graduate</span>
+          </div>
+        </div>
+        <h1 class="bx-2 tx-black">
+          An overall wonderful and rewarding experience
+        </h1>
+        <p class="tx-black">
+          “ Thank you for the wonderful experience! I now have a job I really
+          enjoy, and make a good living while doing something I love. ”
+        </p>
+      </div>
+      <!-- 4 -->
+      <div class="card tx-white dark">
+        <div class="bx-1">
+          <img src="images/image-patrick.jpg" alt="" />
+          <div>
+            <span>Patrick Abrams</span>
+            <span>Verified Graduate</span>
+          </div>
+        </div>
+        <h1 class="bx-2">
+          Awesome teaching support from TAs who did the bootcamp themselves.
+          Getting guidance from them and learning from their experiences was
+          easy.
+        </h1>
+        <p>
+          “ The staff seem genuinely concerned about my progress which I find
+          really refreshing. The program gave me the confidence necessary to be
+          able to go out in the world and present myself as a capable junior
+          developer. The standard is above the rest. You will get the personal
+          attention you need from an incredible community of smart and amazing
+          people. ”
+        </p>
+      </div>
+      <!-- 5 -->
+      <div class="card white tx-black white-2">
+        <div class="bx-1">
+          <img src="images/image-kira.jpg" alt="" />
+          <div>
+            <span>Kira Whittle</span>
+            <span>Verified Graduate</span>
+          </div>
+        </div>
+        <h1 class="bx-2 tx-black">
+          Such a life-changing experience. Highly recommended!
+        </h1>
+        <p class="tx-black">
+          “ Before joining the bootcamp, I’ve never written a line of code. I
+          needed some structure from professionals who can help me learn
+          programming step by step. I was encouraged to enroll by a former
+          student of theirs who can only say wonderful things about the program.
+          The entire curriculum and staff did not disappoint. They were very
+          hands-on and I never had to wait long for assistance. The agile team
+          project, in particular, was outstanding. It took my learning to the
+          next level in a way that no tutorial could ever have. In fact, I’ve
+          often referred to it during interviews as an example of my developent
+          experience. It certainly helped me land a job as a full-stack
+          developer after receiving multiple offers. 100% recommend! ”
+        </p>
+      </div>
+    </main>
+    <!-- footer -->
+    <footer class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by
+      <a href="https://www.frontendmentor.io/profile/MoMo97X"
+        >Muhammed Arrujbani</a
+      >.
+    </footer>
+  </body>
+</html>
