@@ -25,12 +25,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](screenshot.jpg)
+![](screenshot.png)
 
 ### Links
 
-- Solution URL: [Front-End mentor](https://your-solution-url.com)
-- Live Site URL: [Front-End mentor](https://your-live-site-url.com)
+- Solution URL: [Front-End mentor](https://www.frontendmentor.io/solutions/testimonials-card---grid-layout-ORLxQ6X5Uw)
+- Live Site URL: [Front-End mentor](https://momo97x.github.io/Testemonail-Grid-Section/)
 
 ## My process
 
@@ -43,13 +43,17 @@ Users should be able to:
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
+#### using grid template areas to make complex layout
 
 ```css
-.proud-of-this-css {
-  color: papayawhip;
+.card-container {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas:
+    "purple purple"
+    "grey white-1"
+    "black black"
+    "white-2 white-2";
 }
 ```
 
