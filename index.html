@@ -22,7 +22,9 @@
     />
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <style>
-      * {
+      *,
+      *::before,
+      *::after {
         box-sizing: border-box;
       }
 
@@ -50,13 +52,10 @@
         min-height: 100vh;
         padding: clamp(1rem, 0.75rem + 1.15vw, 1.8rem);
         background-color: var(--Grey-100);
-        font-family:
-          kumbh sans,
-          Arial,
-          Helvetica,
-          sans-serif;
+        font-family: "kumbh sans", Arial, Helvetica, sans-serif;
         display: grid;
         place-content: center;
+        gap: 0.5rem;
       }
 
       span {
@@ -69,7 +68,7 @@
       }
 
       h1 {
-        font-size: clamp(16px, 10px + 1.5vw, 40px);
+        font-size: clamp(1rem, 0.625rem + 1.5vw, 2.5rem);
         color: var(--White);
       }
 
@@ -110,17 +109,15 @@
       }
 
       .card {
-        /* padding: clamp(20px, 1.25rem - 2.5vw, 24px); */
         padding: 1.5rem;
-        border-radius: 10px;
-        box-shadow: 10px 10px 20px 18px var(--Grey-200);
+        border-radius: 0.625rem;
+        box-shadow: 0.875rem 0.875rem 0.625rem 0px var(--Grey-200);
         display: grid;
         align-content: start;
       }
 
       .bx-1 {
         display: grid;
-
         grid-template-columns: 0.5fr 3fr;
         align-items: center;
         gap: 1rem;
@@ -130,12 +127,12 @@
         }
 
         & div > span:first-child {
-          font-size: 15px;
-          margin: 0 0 2px;
+          font-size: clamp(0.938rem, 1.5vw, 1.25rem);
+          margin: 0 0 0.125rem;
         }
 
         & div > span:last-child {
-          font-size: 13px;
+          font-size: clamp(0.813rem, 1.5vw, 1.25rem);
           color: var(--Grey-200);
         }
 
@@ -145,13 +142,13 @@
       }
 
       .bx-2 {
-        font-size: 26px;
+        font-size: clamp(0.5rem, 2.5vw, 1.85rem);
         font-weight: 600;
       }
 
       /* *** Medium screen *** */
 
-      @media (min-width: 769px) and (max-width: 1439px) {
+      @media (min-width: 48.75rem) {
         .card-container {
           grid-template-columns: repeat(2, 1fr);
           grid-template-rows: repeat(3, auto);
@@ -168,36 +165,35 @@
 
         .purple {
           grid-area: purple;
+          border: 2px solid var(--White);
         }
 
         .grey {
           grid-area: grey;
+          border: 2px solid var(--White);
         }
 
         .white-2 {
           grid-area: white-2;
+          border: 2px solid var(--White);
         }
 
         .white-1 {
           grid-area: white-1;
+          border: 2px solid var(--White);
         }
 
         .dark {
           grid-area: black;
-        }
-
-        .bx-1 .quotes {
-          display: inline;
-          z-index: 10;
-          border: none;
-          border-radius: unset;
+          border: 2px solid var(--White);
         }
       }
 
       /* *** Large Screen *** */
 
-      @media (min-width: 1440px) {
+      @media (min-width: 90rem) {
         .card-container {
+          width: 100rem;
           /* Define your columns and rows */
           grid-template-columns: repeat(4, 1fr);
           grid-template-rows: repeat(2, auto);
@@ -212,8 +208,22 @@
           grid-template-columns: 0.5fr 3fr 1fr;
         }
 
+        .bx-2 {
+          z-index: 2;
+        }
+
         .purple {
           grid-area: daniel;
+          position: relative;
+        }
+
+        .purple::after {
+          content: url(images/bg-pattern-quotation.svg);
+          position: absolute;
+          top: 10%;
+          right: 10%;
+          opacity: 0.6;
+          z-index: 1;
         }
 
         .grey {
@@ -231,24 +241,19 @@
         .dark {
           grid-area: patrick;
         }
-
-        .bx-1 .quotes {
-          display: inline;
-          z-index: 10;
-          border: none;
-          border-radius: unset;
-        }
       }
 
       .attribution {
-        margin-block-start: min(1.5rem, calc(0.86rem + 1vw));
-        font-size: var(--fs);
         text-align: center;
+        font-size: var(--fs);
+        margin-block-start: min(1.5rem, calc(0.86rem + 1vw));
       }
 
       .attribution a {
-        font-family: "kumbh sans", Arial, Helvetica, sans-serif;
+        text-decoration: none;
         color: var(--Purple-500);
+        font-size: clamp(1.1rem, 1.25vw, 1.25rem);
+        font-family: "kumbh sans", Arial, Helvetica, sans-serif;
       }
     </style>
   </head>
@@ -263,12 +268,6 @@
             <span>Daniel Clifford</span>
             <span>Verified Graduate</span>
           </div>
-          <img
-            class="quotes"
-            src="images/bg-pattern-quotation.svg"
-            alt=""
-            aria-hidden="true"
-          />
         </div>
         <h1 class="bx-2">
           I received a job offer mid-course, and the subjects I learned were
